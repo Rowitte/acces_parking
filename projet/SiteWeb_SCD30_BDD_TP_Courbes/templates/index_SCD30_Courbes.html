@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+   <head>
+      <meta http-equiv="refresh" content="5" >
+      <title>TP DHT11 </title>
+      <link rel="stylesheet" href='../static/style.css'/>
+   </head>
+   <body>
+    <h1> DHT11 data </h1>
+    <hr>
+    <h3> Heure dernier enregistrement = {{ HEURE  }} </h3>
+    <hr>
+    <h3> Température  =   {{ TEMP  }} degrés celsius </h3>
+    <h3> Humidité  =  {{ HUM }} %</h3>
+    <h3> CO2  =  {{ CO2}} ppm</h3>
+    <hr>
+    <h1> Historique des mesures </h1>
+    <P> Saisir le nombre d'enregistrements à afficher
+    <form action="{{ url_for('index_TP10_Courbes') }}"method="POST">
+    	<input name="NENREG" value= {{NENREG}}>
+    	<input type  = "submit">
+    </form></p>
+    <h3> Nombre d'enregistrement demandé = {{ NENREG }} </h3>
+    <img src="data:image/png;base64, {{ plot_url }}">
+    <hr>
+   </body>
+</html>
